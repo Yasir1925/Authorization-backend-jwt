@@ -97,15 +97,15 @@ module.exports.validUser = async (req, res) => {
     }
 }
 
-module.exports.logoutUser = async (req, res) => {
-    try {
-        req.user.tokens = req.user.tokens.filter((currToken) => {
-            return currToken.token !== req.token
-        });
+// module.exports.logoutUser = async (req, res) => {
+//     try {
+//         req.user.tokens = req.user.tokens.filter((currToken) => {
+//             return currToken.token !== req.token
+//         });
 
-        res.clearCookie("")
-    } catch (error) {
-        res.status(401).json({ error: "Not a valid user" });
+//         res.clearCookie("")
+//     } catch (error) {
+//         res.status(401).json({ error: "Not a valid user" });
 
-    }
-}
+//     }
+// }
