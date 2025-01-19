@@ -15,7 +15,6 @@ app.use(cookieParser());
 app.use(cors({
     origin: ["*"],
     methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE", "OPTIONS"],
-
     optionsSuccessStatus: 204,
     credentials: true,
 }));
@@ -25,7 +24,9 @@ const userRouter = require("./routes/user.route")
 
 // Mongo connection
 connectdb(process.env.MONGO_URI);
-
+app.get("/", (req, res) => {
+    res.send({ message: "Working" })
+})
 app.use("/", userRouter)
 
 const port = process.env.PORT || 5000;
